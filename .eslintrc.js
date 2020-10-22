@@ -37,5 +37,9 @@ module.exports = {
     'vuetify/no-deprecated-classes': 2,
     'vuetify/grid-unknown-attributes': 2,
     'vuetify/no-legacy-grid': 2,
+    'space-before-function-paren': [
+      2,
+      { anonymous: 'never', named: 'never', asyncArrow: 'always' },
+    ],
   },
 }
