@@ -24,7 +24,7 @@ class Cookie {
 
     const req = this.context.req
 
-    if (!req) { return }
+    if (!req || !req.headers.cookie) { return }
 
     const cookie = CookieParse(req.headers.cookie)
 
