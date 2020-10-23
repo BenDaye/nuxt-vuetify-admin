@@ -6,7 +6,7 @@
     <!-- // TODO: 接口似乎有bug -->
     <z-page-header :meta="$metaInfo" />
     <v-card>
-      <v-card-text>
+      <v-card-text class="text-truncate">
         <v-data-table
           :headers="headers"
           :items="menu"

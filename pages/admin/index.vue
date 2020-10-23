@@ -5,7 +5,7 @@
   >
     <z-page-header :meta="$metaInfo" />
     <v-card>
-      <v-card-text>
+      <v-card-text class="text-truncate">
         <v-data-table
           :headers="headers"
           :items="admin"
@@ -14,7 +14,7 @@
             <v-toolbar
               flat
             >
-              <v-toolbar-title> 管理员管理 </v-toolbar-title>
+              <v-toolbar-title> {{ $metaInfo.info.title }} </v-toolbar-title>
               <v-divider
                 class="mx-4"
                 inset
