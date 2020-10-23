@@ -3,9 +3,7 @@
     <v-navigation-drawer
       v-model="showMainMenu"
       app
-      mini-variant
       bottom
-      expand-on-hover
     >
       <z-nav />
     </v-navigation-drawer>
