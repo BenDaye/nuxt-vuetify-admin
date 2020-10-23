@@ -1,4 +1,4 @@
-const login = '/login'
+const login = 'login'
 
 export default {
   login,

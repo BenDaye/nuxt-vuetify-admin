@@ -1,6 +1,6 @@
-const menu = '/menu'
+const menu = 'menu'
 
-const tree = '/menu/tree'
+const tree = 'menu/tree'
 
 export default {
   menu,

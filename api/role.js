@@ -1,6 +1,6 @@
-const role = '/role'
+const role = 'role'
 
-const accession = '/role/accession'
+const accession = 'role/accession'
 
 export default {
   role,
