@@ -7,6 +7,8 @@ import Log from './log'
 import Banner from './banner'
 import Message from './message'
 import Notification from './notification'
+import News from './news'
+import Help from './help'
 
 export const getUrl = (url) => {
   return url ? `/api/${url}` : undefined
@@ -22,4 +24,6 @@ export {
   Banner,
   Message,
   Notification,
+  News,
+  Help,
 }
