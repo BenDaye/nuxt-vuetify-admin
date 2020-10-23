@@ -7,7 +7,7 @@
       bottom
       expand-on-hover
     >
-      1
+      <z-nav />
     </v-navigation-drawer>
     <v-app-bar
       app
@@ -16,27 +16,43 @@
       <v-app-bar-nav-icon @click="handleClick" />
       <v-toolbar-title>欢迎访问</v-toolbar-title>
       <v-spacer />
+      <!-- // TODO: 搜索框 -->
       <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
+        <v-icon>mdi-translate</v-icon>
       </v-btn>
-      <v-menu offset-y>
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
+      <v-menu
+        offset-y
+        bottom
+        left
+      >
         <template #activator="{ on, attrs }">
-          <v-btn v-bind="attrs" color="primary" dark icon v-on="on">
+          <v-btn
+            v-bind="attrs"
+            color="primary"
+            dark
+            icon
+            v-on="on"
+          >
             <v-icon>mdi-account</v-icon>
           </v-btn>
         </template>
 
         <v-list>
-          <v-list-item v-for="item in accountMenu" :key="item.key" @click="handleClickAccountMenuItem(item.key)">
+          <v-list-item
+            v-for="item in accountMenu"
+            :key="item.key"
+            @click="handleClickAccountMenuItem(item.key)"
+          >
             <v-list-item-title>{{ item.value }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
     </v-app-bar>
     <v-main>
-      <v-container fluid>
-        <Nuxt />
-      </v-container>
+      <Nuxt />
     </v-main>
     <v-footer app>
       1

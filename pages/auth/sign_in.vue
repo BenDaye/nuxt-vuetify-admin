@@ -1,7 +1,15 @@
 <template>
   <v-container>
-    <v-row class="fill-height" justify="center" align="center">
-      <v-col cols="12" sm="8" md="4">
+    <v-row
+      class="fill-height"
+      justify="center"
+      align="center"
+    >
+      <v-col
+        cols="12"
+        sm="8"
+        md="4"
+      >
         <v-card>
           <v-card-title primary-title>
             欢迎访问
@@ -88,8 +96,12 @@ export default {
     async handleSubmit() {
       if (this.isValided) {
         this.submitLoading = true
-        await this.login(this.form)
+        const { status } = await this.login(this.form)
         this.submitLoading = false
+        if (status === 1) {
+          await this.$dialog.message.success('登录成功', { position: 'top-right', timeout: 1500 })
+          this.$router.push('/')
+        }
       }
     },
   },
