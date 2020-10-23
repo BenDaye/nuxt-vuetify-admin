@@ -5,6 +5,8 @@ import Menu from './menu'
 import Role from './role'
 import Log from './log'
 import Banner from './banner'
+import Message from './message'
+import Notification from './notification'
 
 export const getUrl = (url) => {
   return url ? `/api/${url}` : undefined
@@ -18,4 +20,6 @@ export {
   Role,
   Log,
   Banner,
+  Message,
+  Notification,
 }
