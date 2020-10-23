@@ -17,7 +17,7 @@ export const actions = {
         password,
         duration,
       })
-      dispatch('admin/getProfile', undefined, { root: true })
+      await dispatch('admin/getProfile', undefined, { root: true })
       return res
     } catch (error) {
       console.error(error)
