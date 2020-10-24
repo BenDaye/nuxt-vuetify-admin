@@ -9,9 +9,17 @@ import Message from './message'
 import Notification from './notification'
 import News from './news'
 import Help from './help'
+import System from './system'
+import Feedback from './feedback'
+import Config from './config'
+import Push from './push'
+import Upload from './upload'
+import Area from './area'
+
+const proxy = process.env.API_PROXY || '/api/'
 
 export const getUrl = (url) => {
-  return url ? `/api/${url}` : undefined
+  return url ? `${proxy}${url}` : undefined
 }
 
 export {
@@ -26,4 +34,10 @@ export {
   Notification,
   News,
   Help,
+  System,
+  Feedback,
+  Config,
+  Push,
+  Upload,
+  Area,
 }

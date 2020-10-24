@@ -49,6 +49,7 @@ class Response {
 }
 
 export default (context) => {
+  // TODO: 判断上传处理
   // context.$axios.onRequest((config) => {
   //   if (process.client) {
   //     context.$axios.setToken(context.$token.get())

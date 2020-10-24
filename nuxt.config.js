@@ -1,4 +1,9 @@
 export default {
+  server: {
+    host: process.env.HOST || '0.0.0.0',
+    port: process.env.PORT || 3000,
+    timing: false,
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'nuxt-vuetify-wms',
@@ -14,7 +19,12 @@ export default {
   css: ['normalize.css/normalize.css', '~/assets/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/axios', '~/plugins/token', '~/plugins/date-fns', '~/plugins/common-filters'],
+  plugins: [
+    '~/plugins/axios',
+    '~/plugins/token',
+    '~/plugins/date-fns',
+    '~/plugins/common-filters',
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -49,13 +59,19 @@ export default {
     debug: true,
   },
 
-  proxy: {
-    '/api/': {
-      target: 'https://api-mag.bendaye.vip/v1',
-      pathRewrite: { '^/api/': '' },
+  proxy: process.env.API_PROXY
+    ? {
+      [process.env.API_PROXY]: {
+        target: `${process.env.API_BASE}${process.env.API_VERSION}`,
+        pathRewrite: { [`^${process.env.API_PROXY}`]: '' },
+      },
+    }
+    : {
+      '/api/': {
+        target: 'https://api-mag.bendaye.vip/v1',
+        pathRewrite: { '^/api/': '' },
+      },
     },
-  },
-
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 }
