@@ -10,7 +10,7 @@ export default {
       return route.map((r) => {
         return {
           text: r.name,
-          href: r.path,
+          to: r.path,
         }
       })
     },
