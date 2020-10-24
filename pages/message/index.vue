@@ -5,7 +5,7 @@
   >
     <z-page-header :meta="$metaInfo" />
     <v-card>
-      <v-card-text>
+      <v-card-text class="text-truncate">
         <v-data-table
           :headers="headers"
           :items="message"
@@ -26,6 +26,9 @@
               </v-btn>
               <v-spacer />
             </v-toolbar>
+          </template>
+          <template #item.uid="{ item }">
+            {{ getUserName(item.uid) }}
           </template>
           <template #item.created_at="{ item }">
             {{ item.created_at | fmt }}
@@ -51,24 +54,24 @@ export default {
           value: 'id',
         },
         {
-          text: '用户ID',
-          align: 'left',
-          value: 'uid',
-        },
-        {
           text: '标题',
           align: 'left',
           value: 'title',
         },
+        // {
+        //   text: '内容',
+        //   align: 'left',
+        //   value: 'content',
+        // },
+        // {
+        //   text: '备注',
+        //   align: 'left',
+        //   value: 'note',
+        // },
         {
-          text: '内容',
+          text: '接收者',
           align: 'left',
-          value: 'content',
-        },
-        {
-          text: '备注',
-          align: 'left',
-          value: 'note',
+          value: 'uid',
         },
         {
           text: '已读',
@@ -110,10 +113,11 @@ export default {
   computed: {
     ...mapGetters({
       message: 'message/message',
+      user: 'user/user',
     }),
   },
   mounted() {
-    // TODO: 获取用户信息与uid匹配
+    this.getUser()
     this.getMessage()
   },
   methods: {
@@ -123,7 +127,13 @@ export default {
       createMessage: 'message/createMessage',
       updateMessage: 'message/updateMessage',
       deleteMessage: 'message/deleteMessage',
+      getUser: 'user/getUser',
     }),
+    getUserName(id) {
+      if (!id) { return }
+      const _u = this.user.find(u => u.id === id)
+      return _u ? _u.username : id
+    },
   },
 }
 </script>

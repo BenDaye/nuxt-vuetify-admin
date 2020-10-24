@@ -56,6 +56,31 @@ Vue.filter('status', function(value, type, opt = {}) {
           return '未知状态'
       }
     },
+    news() {
+      const { color } = opt
+      if (color) {
+        switch (value) {
+          case 0:
+            return 'success'
+          // case -1:
+          //   return 'secondary'
+          // case -100:
+          //   return 'error'
+          default:
+            return 'warning'
+        }
+      }
+      switch (value) {
+        case 0:
+          return '已启用'
+        // case -1:
+        //   return '未激活'
+        // case -100:
+        //   return '已禁用'
+        default:
+          return '未知状态'
+      }
+    },
   }
 
   return type in handler ? handler[type].call(this) : value
