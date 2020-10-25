@@ -10,19 +10,20 @@
         prepend-icon="mdi-book-variant"
       >
         <template #activator>
-          <v-list-item-content>{{ route.name }}</v-list-item-content>
+          <v-list-item-content>{{ route.path }}</v-list-item-content>
         </template>
-        <v-list-item
-          v-for="child in route.children"
-          :key="child.name"
-          nuxt
-          :to="`${route.path}/${child.path}`"
-        >
-          <v-list-item-icon>
-            <v-icon>mdi-circle-medium</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>{{ child.name }}</v-list-item-content>
-        </v-list-item>
+        <template v-for="child in route.children">
+          <v-list-item
+            v-if="child.path !== ':id'"
+            :key="child.name"
+            :to="{ name: child.name }"
+          >
+            <v-list-item-icon>
+              <v-icon>mdi-circle-medium</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>{{ child.name }}</v-list-item-content>
+          </v-list-item>
+        </template>
       </v-list-group>
       <v-list-item
         v-else

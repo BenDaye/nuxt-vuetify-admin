@@ -1,82 +1,103 @@
 <template>
-  <v-container
-    fluid
-    class="fill-height flex-column align-stretch pa-6"
-  >
-    <z-page-header :meta="$metaInfo" />
-    <v-card>
-      <v-card-text class="text-truncate">
-        <v-data-table
-          :headers="headers"
-          :items="user"
-        >
-          <template #top>
-            <v-toolbar flat>
-              <v-toolbar-title> {{ $metaInfo.info.title }} </v-toolbar-title>
-              <v-divider
-                class="mx-4"
-                inset
-                vertical
-              />
+  <v-card>
+    <v-card-text class="text-truncate">
+      <v-data-table
+        :headers="headers"
+        :items="user"
+      >
+        <template #top>
+          <v-toolbar flat>
+            <v-toolbar-title> {{ $metaInfo.info.title }} </v-toolbar-title>
+            <v-divider
+              class="mx-4"
+              inset
+              vertical
+            />
+            <v-btn
+              icon
+              @click="getUser"
+            >
+              <v-icon>mdi-refresh</v-icon>
+            </v-btn>
+            <v-spacer />
+          </v-toolbar>
+        </template>
+        <template #item.id="{ item }">
+          <v-tooltip right>
+            <template #activator="{ attrs, on }">
               <v-btn
-                icon
-                @click="getUser"
+                class="pl-0"
+                text
+                small
+                v-bind="attrs"
+                v-on="on"
               >
-                <v-icon>mdi-refresh</v-icon>
+                # {{ item.id }}
               </v-btn>
-              <v-spacer />
-            </v-toolbar>
-          </template>
-          <template #item.username="{ item }">
-            <v-avatar
-              size="24px"
-              class="mr-1"
+            </template>
+            <span>Copy</span>
+          </v-tooltip>
+        </template>
+        <template #item.username="{ item }">
+          <v-avatar
+            size="32px"
+            class="mr-1 elevation-4"
+          >
+            <img
+              v-if="item.avatar"
+              :src="`${item.avatar}?height=48`"
+              alt="Avatar"
             >
-              <img
-                v-if="item.avatar"
-                :src="`${item.avatar}?height=48`"
-                alt="Avatar"
-              >
-              <v-icon
-                v-else
-                color="default"
-              >
-                mdi-account-circle
-              </v-icon>
-            </v-avatar>
-            {{ item.username }}
-          </template>
-          <template #item.status="{ item }">
-            <v-chip
-              :color="item.status | status('user', { color: true })"
-              small
-              label
-            >
-              {{ item.status | status('user') }}
-            </v-chip>
-          </template>
-          <template #item.gender="{ item }">
-            {{ item.gender | gender }}
-          </template>
-          <template #item.created_at="{ item }">
-            {{ item.created_at | fmt('yyyy-MM-dd') }}
-          </template>
-          <template #item.updated_at="{ item }">
-            {{ item.updated_at | fmt('yyyy-MM-dd') }}
-          </template>
-          <!-- // TODO: do something -->
-          <!-- eslint-disable-next-line -->
-          <template #item.actions="{ item }">
             <v-icon
-              small
+              v-else
+              size="32px"
+              color="default"
             >
-              mdi-square-edit-outline
+              mdi-account-circle
             </v-icon>
-          </template>
-        </v-data-table>
-      </v-card-text>
-    </v-card>
-  </v-container>
+          </v-avatar>
+          {{ item.username }}
+        </template>
+        <template #item.role="{ item }">
+          <v-chip
+            v-for="(r, i) in item.role"
+            :key="i"
+            :color="r === 'waiter' ? 'primary' : ''"
+            :class="i ? 'ml-1' : ''"
+            small
+            label
+          >
+            {{ r }}
+          </v-chip>
+        </template>
+        <template #item.status="{ item }">
+          <v-chip
+            :color="item.status | status('user', { color: true })"
+            small
+            label
+          >
+            {{ item.status | status('user') }}
+          </v-chip>
+        </template>
+        <template #item.gender="{ item }">
+          {{ item.gender | gender }}
+        </template>
+        <template #item.created_at="{ item }">
+          {{ item.created_at | fmt('yyyy-MM-dd') }}
+        </template>
+        <template #item.updated_at="{ item }">
+          {{ item.updated_at | fmt('yyyy-MM-dd') }}
+        </template>
+        <!-- // TODO: do something -->
+        <!-- eslint-disable-next-line -->
+          <template #item.actions="{ item }">
+          <v-icon small>
+            mdi-square-edit-outline
+          </v-icon>
+        </template>
+      </v-data-table>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
