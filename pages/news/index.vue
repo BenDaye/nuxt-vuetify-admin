@@ -1,7 +1,7 @@
 <template>
   <v-container
     fluid
-    class="py-3"
+    class="fill-height flex-column align-stretch pa-6"
   >
     <z-page-header :meta="$metaInfo" />
     <v-card>
@@ -27,8 +27,19 @@
               <v-spacer />
             </v-toolbar>
           </template>
+          <template #item.id="{ item }">
+            <z-dialog-activator
+              :id="item.id"
+              :text="item.id"
+              type="news"
+            />
+          </template>
           <template #item.author="{ item }">
-            {{ getAdminName(item.author) }}
+            <z-dialog-activator
+              :id="item.author"
+              :text="item.author"
+              type="admin"
+            />
           </template>
           <template #item.status="{ item }">
             <v-chip
@@ -61,7 +72,7 @@ export default {
           text: 'ID',
           align: 'left',
           value: 'id',
-          width: 200,
+          width: 240,
         },
         {
           text: '类型',
@@ -85,13 +96,15 @@ export default {
         },
         {
           text: '编辑者',
-          align: 'left',
+          align: 'right',
           value: 'author',
+          width: 240,
         },
         {
           text: '状态',
           align: 'center',
           value: 'status',
+          width: 120,
         },
         {
           text: '创建时间',
@@ -104,12 +117,6 @@ export default {
           align: 'right',
           value: 'updated_at',
           width: 120,
-        },
-        {
-          text: '操作',
-          align: 'right',
-          value: 'actions',
-          sortable: false,
         },
       ],
     }
@@ -125,12 +132,10 @@ export default {
   computed: {
     ...mapGetters({
       news: 'news/news',
-      admin: 'admin/admin',
     }),
   },
   mounted() {
     this.getNews()
-    this.getAdmin()
   },
   methods: {
     ...mapActions({
@@ -139,13 +144,7 @@ export default {
       createNews: 'news/createNews',
       updateNews: 'news/updateNews',
       deleteNews: 'news/deleteNews',
-      getAdmin: 'admin/getAdmin',
     }),
-    getAdminName(id) {
-      if (!id) { return }
-      const _a = this.admin.find(a => a.id === id)
-      return _a ? _a.username : id
-    },
   },
 }
 </script>

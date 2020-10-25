@@ -47,9 +47,10 @@ export const actions = {
       return error
     }
   },
-  async getAdminDetail({ commit }, { id }) {
+  async getAdminDetail({ dispatch }, { id, show = false }) {
     try {
       const res = await this.$axios.$get(`${getUrl(Admin.admin)}/${id}`)
+      dispatch('dialog/showAdmin', { admin: res.data, show }, { root: true })
       return res
     } catch (error) {
       console.error(error)

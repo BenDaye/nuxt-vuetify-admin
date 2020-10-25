@@ -1,7 +1,7 @@
 <template>
   <v-container
     fluid
-    class="py-3"
+    class="fill-height flex-column align-stretch pa-6"
   >
     <!-- // TODO: 接口似乎有bug -->
     <z-page-header :meta="$metaInfo" />

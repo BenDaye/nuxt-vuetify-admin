@@ -27,9 +27,10 @@ export const actions = {
       return error
     }
   },
-  async getNewsDetail({ commit }, { id }) {
+  async getNewsDetail({ dispatch }, { id, show = false }) {
     try {
       const res = await this.$axios.$get(`${getUrl(News.news)}/${id}`)
+      dispatch('dialog/showNews', { news: res.data, show }, { root: true })
       return res
     } catch (error) {
       console.error(error)

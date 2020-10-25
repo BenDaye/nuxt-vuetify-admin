@@ -51,8 +51,7 @@
     </v-app-bar>
     <v-main>
       <Nuxt />
-      <z-message-dialog />
-      <z-user-dialog />
+      <z-dialog />
     </v-main>
     <v-footer app>
       1
@@ -61,6 +60,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   middleware: ['authenticated'],
   data() {
@@ -74,7 +74,15 @@ export default {
       ],
     }
   },
+  mounted() {
+    this.getAdmin()
+    this.getUser()
+  },
   methods: {
+    ...mapActions({
+      getAdmin: 'admin/getAdmin',
+      getUser: 'user/getUser',
+    }),
     handleClick() {
       this.showMainMenu = !this.showMainMenu
     },

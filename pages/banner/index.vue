@@ -1,7 +1,7 @@
 <template>
   <v-container
     fluid
-    class="py-3"
+    class="fill-height flex-column align-stretch pa-6"
   >
     <z-page-header :meta="$metaInfo" />
     <v-card>
@@ -79,12 +79,6 @@ export default {
           text: '备用标识',
           align: 'center',
           value: 'fallback_url',
-        },
-        {
-          text: '操作',
-          align: 'right',
-          value: 'actions',
-          sortable: false,
         },
       ],
     }

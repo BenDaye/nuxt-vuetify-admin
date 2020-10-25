@@ -1,7 +1,7 @@
 <template>
   <v-container
     fluid
-    class="py-3"
+    class="fill-height flex-column align-stretch pa-6"
   >
     <z-page-header :meta="$metaInfo" />
     <v-card>
@@ -11,9 +11,7 @@
           :items="user"
         >
           <template #top>
-            <v-toolbar
-              flat
-            >
+            <v-toolbar flat>
               <v-toolbar-title> {{ $metaInfo.info.title }} </v-toolbar-title>
               <v-divider
                 class="mx-4"
@@ -27,94 +25,6 @@
                 <v-icon>mdi-refresh</v-icon>
               </v-btn>
               <v-spacer />
-              <!-- <v-dialog
-                v-model="dialog"
-                max-width="500px"
-                persistent
-              >
-                <template #activator="{ on, attrs }">
-                  <v-btn
-                    color="primary"
-                    dark
-                    class="mb-2"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    创建管理员
-                  </v-btn>
-                </template>
-                <v-card>
-                  <v-card-title primary-title>
-                    创建管理员
-                  </v-card-title>
-                  <v-card-text>
-                    <v-form v-model="valid">
-                      <v-container>
-                        <v-row>
-                          <v-col cols="12">
-                            <v-text-field
-                              v-model="form.account"
-                              name="account"
-                              :rules="rules.account"
-                              label="账号"
-                              dense
-                              filled
-                              required
-                              clearable
-                              autofocus
-                            />
-                          </v-col>
-                          <v-col cols="12">
-                            <v-text-field
-                              v-model="form.name"
-                              name="name"
-                              :rules="rules.name"
-                              label="昵称"
-                              dense
-                              filled
-                              required
-                              clearable
-                            />
-                          </v-col>
-                          <v-col cols="12">
-                            <v-text-field
-                              v-model="form.password"
-                              name="password"
-                              :rules="rules.password"
-                              label="密码"
-                              dense
-                              filled
-                              required
-                              clearable
-                              disabled
-                              type="password"
-                            />
-                          </v-col>
-                        </v-row>
-                      </v-container>
-                    </v-form>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-spacer />
-                    <v-btn
-                      color="error"
-                      text
-                      @click="handleReset"
-                    >
-                      取消
-                    </v-btn>
-                    <v-btn
-                      color="primary"
-                      text
-                      :disabled="!valid"
-                      :loading="loading"
-                      @click="handleSave"
-                    >
-                      保存
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog> -->
             </v-toolbar>
           </template>
           <template #item.username="{ item }">
@@ -175,26 +85,28 @@ export default {
   data() {
     return {
       headers: [
-        // {
-        //   text: 'ID',
-        //   align: 'left',
-        //   value: 'id',
-        // },
+        {
+          text: 'ID',
+          align: 'left',
+          value: 'id',
+          width: 240,
+        },
         {
           text: '账号',
           align: 'left',
           value: 'username',
+          width: 240,
         },
-        {
-          text: '等级',
-          align: 'center',
-          value: 'level',
-        },
-        {
-          text: '微信',
-          align: 'left',
-          value: 'wechat',
-        },
+        // {
+        //   text: '等级',
+        //   align: 'center',
+        //   value: 'level',
+        // },
+        // {
+        //   text: '微信',
+        //   align: 'left',
+        //   value: 'wechat',
+        // },
         {
           text: '手机号',
           align: 'left',
@@ -205,16 +117,17 @@ export default {
           align: 'left',
           value: 'email',
         },
-        {
-          text: '昵称',
-          align: 'right',
-          value: 'nickname',
-        },
-        {
-          text: '性别',
-          align: 'center',
-          value: 'gender',
-        },
+        // {
+        //   text: '昵称',
+        //   align: 'right',
+        //   value: 'nickname',
+        //   width: 240,
+        // },
+        // {
+        //   text: '性别',
+        //   align: 'center',
+        //   value: 'gender',
+        // },
         {
           text: '角色',
           align: 'center',
@@ -224,6 +137,7 @@ export default {
           text: '状态',
           align: 'center',
           value: 'status',
+          width: 120,
         },
         {
           text: '创建时间',
@@ -242,6 +156,7 @@ export default {
           align: 'right',
           value: 'actions',
           sortable: false,
+          width: 80,
         },
       ],
       dialog: false,

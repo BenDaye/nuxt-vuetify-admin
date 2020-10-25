@@ -1,5 +1,11 @@
 # nuxt-vuetify-wms
 
+## TODO
+
+- [] 登出后重置store
+- [] 创建一个公共的Dialog来显示数据详情
+- [] 调通api:menu && api:admin/accession 来配置左侧导航菜单
+
 ## Build Setup
 
 ```bash

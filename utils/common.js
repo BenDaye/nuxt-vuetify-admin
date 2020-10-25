@@ -10,13 +10,14 @@
 //   timeout,
 // } from '@nuxt/utils'
 import get from 'lodash.get'
+export { get }
 
-const objectToString = value => Object.prototype.toString.call(value)
+export const objectToString = value => Object.prototype.toString.call(value)
 
 // eslint-disable-next-line no-self-compare
-const eq = (value, other) => value === other || (value !== value && other !== other)
+export const eq = (value, other) => value === other || (value !== value && other !== other)
 
-const regexpRules = {
+export const regexpRules = {
   isAccount: value => /^\w+$/.test(value),
   isDigital: value => /^\d+$/.test(value),
   isName: value => /^[\u4E00-\u9FA5A-Za-z\s]+(·[\u4E00-\u9FA5A-Za-z]+)*$/.test(value),
@@ -28,7 +29,7 @@ const regexpRules = {
 }
 
 // !如果需要建议引入useragent库
-const userAgent = (value) => {
+export const userAgent = (value) => {
   const rules = {
     IE: /msie (\d+\.\d+)/i,
     CHROME: /chrome\/(\d+\.\d+)/i,
@@ -56,17 +57,22 @@ const userAgent = (value) => {
   return ua
 }
 
-export default {
-  // isString,
-  // isNonEmptyString,
-  // isPureObject,
-  // isUrl,
-  // waitFor,
-  // stripWhitespace,
-  // timeout,
-  objectToString,
-  eq,
-  get,
-  regexpRules,
-  userAgent,
+export const capitalize = (value) => {
+  if (typeof value !== 'string') { return '' }
+  return value.charAt(0).toUpperCase() + value.slice(1)
 }
+
+// export default {
+//   // isString,
+//   // isNonEmptyString,
+//   // isPureObject,
+//   // isUrl,
+//   // waitFor,
+//   // stripWhitespace,
+//   // timeout,
+//   objectToString,
+//   eq,
+//   get,
+//   regexpRules,
+//   userAgent,
+// }

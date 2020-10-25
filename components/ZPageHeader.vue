@@ -1,9 +1,9 @@
 <template>
-  <div class="mb-2">
+  <div class="py-4">
     <div class="display-1">
       {{ title }}
     </div>
-    <div class="mt-2">
+    <div class="mt-3">
       {{ desc }}
     </div>
     <z-breadcrumbs />

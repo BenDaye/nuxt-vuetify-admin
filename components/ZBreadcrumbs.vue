@@ -1,5 +1,8 @@
 <template>
-  <v-breadcrumbs :items="items" />
+  <v-breadcrumbs
+    :items="items"
+    class="pa-0 py-3"
+  />
 </template>
 
 <script>

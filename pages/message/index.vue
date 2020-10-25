@@ -1,7 +1,7 @@
 <template>
   <v-container
     fluid
-    class="py-3"
+    class="fill-height flex-column align-stretch pa-6"
   >
     <z-page-header :meta="$metaInfo" />
     <v-card>
@@ -28,24 +28,18 @@
             </v-toolbar>
           </template>
           <template #item.id="{ item }">
-            <v-btn
-              color="info"
-              text
-              small
-              @click.stop="getMessageDetail({ id: item.id, show: true })"
-            >
-              {{ item.id }}
-            </v-btn>
+            <z-dialog-activator
+              :id="item.id"
+              :text="item.id"
+              type="message"
+            />
           </template>
           <template #item.uid="{ item }">
-            <v-btn
-              color="info"
-              text
-              small
-              @click.stop="getUserDetail({ id: item.uid, show: true })"
-            >
-              {{ getUserName(item.uid) }}
-            </v-btn>
+            <z-dialog-activator
+              :id="item.uid"
+              :text="item.uid"
+              type="user"
+            />
           </template>
           <template #item.read="{ item }">
             <v-chip
@@ -139,11 +133,9 @@ export default {
   computed: {
     ...mapGetters({
       message: 'message/message',
-      user: 'user/user',
     }),
   },
   mounted() {
-    this.getUser()
     this.getMessage()
   },
   methods: {
@@ -153,16 +145,7 @@ export default {
       createMessage: 'message/createMessage',
       updateMessage: 'message/updateMessage',
       deleteMessage: 'message/deleteMessage',
-      getUser: 'user/getUser',
-      getUserDetail: 'user/getUserDetail',
     }),
-    getUserName(id) {
-      if (!id) {
-        return
-      }
-      const _u = this.user.find(u => u.id === id)
-      return _u ? _u.username : id
-    },
   },
 }
 </script>
