@@ -28,10 +28,10 @@
             </v-toolbar>
           </template>
           <template #item.created_at="{ item }">
-            {{ item.created_at | fmt }}
+            {{ item.created_at | fmt('yyyy-MM-dd') }}
           </template>
           <template #item.updated_at="{ item }">
-            {{ item.updated_at | fmt }}
+            {{ item.updated_at | fmt('yyyy-MM-dd') }}
           </template>
         </v-data-table>
       </v-card-text>

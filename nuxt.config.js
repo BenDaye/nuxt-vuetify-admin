@@ -56,7 +56,7 @@ export default {
   axios: {
     proxy: true,
     retry: { retries: 3 },
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
   },
 
   proxy: process.env.API_PROXY

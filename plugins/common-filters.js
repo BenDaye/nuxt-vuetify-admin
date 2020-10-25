@@ -62,10 +62,6 @@ Vue.filter('status', function(value, type, opt = {}) {
         switch (value) {
           case 0:
             return 'success'
-          // case -1:
-          //   return 'secondary'
-          // case -100:
-          //   return 'error'
           default:
             return 'warning'
         }
@@ -73,12 +69,25 @@ Vue.filter('status', function(value, type, opt = {}) {
       switch (value) {
         case 0:
           return '已启用'
-        // case -1:
-        //   return '未激活'
-        // case -100:
-        //   return '已禁用'
         default:
           return '未知状态'
+      }
+    },
+    message() {
+      const { color } = opt
+      if (color) {
+        switch (value) {
+          case true:
+            return 'success'
+          default:
+            return 'warning'
+        }
+      }
+      switch (value) {
+        case true:
+          return '已读'
+        default:
+          return '未读'
       }
     },
   }

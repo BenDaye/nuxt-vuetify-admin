@@ -40,10 +40,10 @@
             </v-chip>
           </template>
           <template #item.created_at="{ item }">
-            {{ item.created_at | fmt }}
+            {{ item.created_at | fmt('yyyy-MM-dd') }}
           </template>
           <template #item.updated_at="{ item }">
-            {{ item.updated_at | fmt }}
+            {{ item.updated_at | fmt('yyyy-MM-dd') }}
           </template>
         </v-data-table>
       </v-card-text>
@@ -61,6 +61,7 @@ export default {
           text: 'ID',
           align: 'left',
           value: 'id',
+          width: 200,
         },
         {
           text: '类型',
@@ -94,13 +95,15 @@ export default {
         },
         {
           text: '创建时间',
-          align: 'center',
+          align: 'right',
           value: 'created_at',
+          width: 120,
         },
         {
           text: '修改时间',
-          align: 'center',
+          align: 'right',
           value: 'updated_at',
+          width: 120,
         },
         {
           text: '操作',

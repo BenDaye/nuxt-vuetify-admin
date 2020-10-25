@@ -27,14 +27,40 @@
               <v-spacer />
             </v-toolbar>
           </template>
+          <template #item.id="{ item }">
+            <v-btn
+              color="info"
+              text
+              small
+              @click.stop="getMessageDetail({ id: item.id, show: true })"
+            >
+              {{ item.id }}
+            </v-btn>
+          </template>
           <template #item.uid="{ item }">
-            {{ getUserName(item.uid) }}
+            <v-btn
+              color="info"
+              text
+              small
+              @click.stop="getUserDetail({ id: item.uid, show: true })"
+            >
+              {{ getUserName(item.uid) }}
+            </v-btn>
+          </template>
+          <template #item.read="{ item }">
+            <v-chip
+              :color="item.read | status('message', { color: true })"
+              small
+              label
+            >
+              {{ item.read | status('message') }}
+            </v-chip>
           </template>
           <template #item.created_at="{ item }">
-            {{ item.created_at | fmt }}
+            {{ item.created_at | fmt('yyyy-MM-dd') }}
           </template>
           <template #item.updated_at="{ item }">
-            {{ item.updated_at | fmt }}
+            {{ item.updated_at | fmt('yyyy-MM-dd') }}
           </template>
         </v-data-table>
       </v-card-text>
@@ -52,6 +78,7 @@ export default {
           text: 'ID',
           align: 'left',
           value: 'id',
+          width: 240,
         },
         {
           text: '标题',
@@ -70,34 +97,33 @@ export default {
         // },
         {
           text: '接收者',
-          align: 'left',
+          align: 'right',
           value: 'uid',
+          width: 240,
         },
         {
-          text: '已读',
+          text: '状态',
           align: 'center',
           value: 'read',
+          width: 120,
         },
         {
           text: '已读时间',
-          align: 'center',
+          align: 'right',
           value: 'read_at',
+          width: 120,
         },
         {
           text: '创建时间',
-          align: 'center',
+          align: 'right',
           value: 'created_at',
+          width: 120,
         },
         {
           text: '修改时间',
-          align: 'center',
-          value: 'updated_at',
-        },
-        {
-          text: '操作',
           align: 'right',
-          value: 'actions',
-          sortable: false,
+          value: 'updated_at',
+          width: 120,
         },
       ],
     }
@@ -128,9 +154,12 @@ export default {
       updateMessage: 'message/updateMessage',
       deleteMessage: 'message/deleteMessage',
       getUser: 'user/getUser',
+      getUserDetail: 'user/getUserDetail',
     }),
     getUserName(id) {
-      if (!id) { return }
+      if (!id) {
+        return
+      }
       const _u = this.user.find(u => u.id === id)
       return _u ? _u.username : id
     },

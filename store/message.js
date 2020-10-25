@@ -27,9 +27,10 @@ export const actions = {
       return error
     }
   },
-  async getMessageDetail({ commit }, { id }) {
+  async getMessageDetail({ dispatch }, { id, show = false }) {
     try {
       const res = await this.$axios.$get(`${getUrl(Message.message)}/${id}`)
+      dispatch('dialog/showMessage', { message: res.data, show }, { root: true })
       return res
     } catch (error) {
       console.error(error)

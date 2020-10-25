@@ -51,6 +51,8 @@
     </v-app-bar>
     <v-main>
       <Nuxt />
+      <z-message-dialog />
+      <z-user-dialog />
     </v-main>
     <v-footer app>
       1

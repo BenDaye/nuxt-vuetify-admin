@@ -40,9 +40,10 @@ export const actions = {
       return error
     }
   },
-  async getUserDetail({ commit }, { id }) {
+  async getUserDetail({ dispatch }, { id, show = false }) {
     try {
       const res = await this.$axios.$get(`${getUrl(User.user)}/${id}`)
+      dispatch('dialog/showUser', { user: res.data, show }, { root: true })
       return res
     } catch (error) {
       console.error(error)
