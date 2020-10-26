@@ -10,7 +10,7 @@
         prepend-icon="mdi-book-variant"
       >
         <template #activator>
-          <v-list-item-content>{{ route.path }}</v-list-item-content>
+          <v-list-item-content>{{ route.name || route.path.slice(1) }}</v-list-item-content>
         </template>
         <template v-for="child in route.children">
           <v-list-item

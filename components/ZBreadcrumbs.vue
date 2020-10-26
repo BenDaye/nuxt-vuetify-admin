@@ -12,7 +12,7 @@ export default {
       const route = this.$route.matched
       return route.map((r) => {
         return {
-          text: r.name,
+          text: r.name || r.path.slice(1),
           to: { name: r.name },
         }
       })
