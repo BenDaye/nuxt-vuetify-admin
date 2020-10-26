@@ -88,12 +88,14 @@
         <template #item.updated_at="{ item }">
           {{ item.updated_at | fmt('yyyy-MM-dd') }}
         </template>
-        <!-- // TODO: do something -->
-        <!-- eslint-disable-next-line -->
-          <template #item.actions="{ item }">
-          <v-icon small>
-            mdi-square-edit-outline
-          </v-icon>
+        <template #item.actions="{ item }">
+          <v-btn
+            icon
+            small
+            :to="{ name: 'user-id', params: { id: item.id } }"
+          >
+            <v-icon> mdi-open-in-new </v-icon>
+          </v-btn>
         </template>
       </v-data-table>
     </v-card-text>

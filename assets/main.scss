@@ -2,3 +2,16 @@ html,
 body {
   font-size: 15px;
 }
+
+.text-decoration-dashed {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    border-bottom: 1px dashed;
+  }
+}

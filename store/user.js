@@ -104,7 +104,7 @@ export const actions = {
   },
   async updateUserRole({ dispatch }, { id, roles }) {
     try {
-      const res = await this.$axios.$put(`${getUrl(User.user)}/${id}/roles`, {
+      const res = await this.$axios.$put(`${getUrl(User.user)}/${id}/role`, {
         roles,
       })
       await dispatch('getUser')
