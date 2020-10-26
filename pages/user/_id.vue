@@ -273,6 +273,7 @@
 import { mapActions, mapGetters } from 'vuex'
 import { getUrl, User, Role } from '~/api'
 export default {
+  layout: 'child',
   middleware: ['id'],
   async asyncData({ $axios, params }) {
     const { data: userData } = await $axios.$get(`${getUrl(User.user)}/${params.id}`)

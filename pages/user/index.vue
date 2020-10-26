@@ -26,7 +26,7 @@
           <v-tooltip right>
             <template #activator="{ attrs, on }">
               <v-btn
-                class="pl-0"
+                class="px-0 text-decoration-dashed"
                 text
                 small
                 v-bind="attrs"
@@ -105,6 +105,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
+  layout: 'child',
   data() {
     return {
       headers: [
