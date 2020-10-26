@@ -275,20 +275,24 @@ import { getUrl, User, Role } from '~/api'
 export default {
   layout: 'child',
   middleware: ['id'],
-  async asyncData({ $axios, params }) {
-    const { data: userData } = await $axios.$get(`${getUrl(User.user)}/${params.id}`)
-    const { data: roles } = await $axios.$get(getUrl(Role.role))
-    const { role, nickname, gender, avatar, status } = userData
-    return {
-      user: userData,
-      roles,
-      form: {
-        roles: role,
-        nickname,
-        gender,
-        avatar,
-        status,
-      },
+  async asyncData({ $axios, params, error }) {
+    try {
+      const { data: userData } = await $axios.$get(`${getUrl(User.user)}/${params.id}`)
+      const { data: roles } = await $axios.$get(getUrl(Role.role))
+      const { role, nickname, gender, avatar, status } = userData
+      return {
+        user: userData,
+        roles,
+        form: {
+          roles: role,
+          nickname,
+          gender,
+          avatar,
+          status,
+        },
+      }
+    } catch (err) {
+      error(err)
     }
   },
   data() {

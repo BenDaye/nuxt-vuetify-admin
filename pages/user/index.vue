@@ -224,7 +224,6 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user/user',
-      accession: 'user/accession',
     }),
     routes() {
       return this.$router.options.routes
@@ -232,7 +231,6 @@ export default {
   },
   mounted() {
     this.getUser()
-    this.getAccession()
   },
   methods: {
     ...mapActions({
@@ -241,7 +239,6 @@ export default {
       updateUser: 'user/updateUser',
       updateUserPassword: 'user/updateUserPassword',
       updateUserRole: 'user/updateUserRole',
-      getAccession: 'user/getUserAccession',
     }),
     handleReset() {
       this.dialog = false

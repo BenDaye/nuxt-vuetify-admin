@@ -42,8 +42,9 @@ class Response {
             position: 'top-right',
             timeout: 3000,
           })
+          return Promise.reject(new ResponseError(this.response.data, message))
         }
-        return Promise.reject(new ResponseError(this.response, message))
+        return Promise.reject(new Error(message))
     }
   }
 }
@@ -60,4 +61,11 @@ export default (context) => {
     const res = new Response(context, response)
     return res.handleResponse()
   })
+
+  // context.$axios.onResponseError((err) => {
+  //   console.log(err)
+  //   if (err.status === 500) {
+  //     context.redirect('/error')
+  //   }
+  // })
 }
