@@ -14,6 +14,20 @@
       <v-app-bar-nav-icon @click="handleClick" />
       <v-toolbar-title>Welcome</v-toolbar-title>
       <v-spacer />
+      <v-autocomplete
+        ref="search"
+        v-model="searchKey"
+        :loading="searching"
+        :items="searchItems"
+        :search-input.sync="searchInput"
+        cache-items
+        class="mx-4"
+        flat
+        hide-no-data
+        hide-details
+        label="Search on this site"
+        solo-inverted
+      />
       <v-btn icon>
         <v-icon>mdi-translate</v-icon>
       </v-btn>
@@ -69,7 +83,7 @@
 </template>
 
 <script>
-// TODO: Searchbar
+// TODO: define searchItems
 import { mapActions } from 'vuex'
 export default {
   middleware: ['authenticated'],
@@ -82,11 +96,20 @@ export default {
           value: 'Sign out',
         },
       ],
+      searchKey: null,
+      searching: false,
+      searchItems: [],
+      searchInput: null,
     }
   },
   mounted() {
     this.getAdmin()
     this.getUser()
+    // ???: 监听按下'/'触发searchbar.focus()
+    window.addEventListener('keydown', this.handleKeydown)
+  },
+  beforeDestroy() {
+    window.removeEventListener('keydown', this.handleKeydown)
   },
   methods: {
     ...mapActions({
@@ -107,6 +130,15 @@ export default {
         default:
           break
       }
+    },
+    handleKeydown(ev) {
+      // eslint-disable-next-line no-caller
+      const e = ev || window.event || arguments.callee.caller.arguments[0]
+      if (!e) {
+        return
+      }
+      const { key } = e
+      return key === '/' && e.target !== this.$refs.search.$refs.input && (e.preventDefault(), this.$refs.search.focus())
     },
   },
 }
