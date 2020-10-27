@@ -23,7 +23,7 @@
           depressed
           small
         >
-          保存
+          Save
         </v-btn>
       </v-card-actions>
     </v-card>

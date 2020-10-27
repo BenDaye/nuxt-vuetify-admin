@@ -3,7 +3,6 @@
     fluid
     class="fill-height flex-column align-stretch pa-6"
   >
-    <!-- // TODO: 接口似乎有bug -->
     <z-page-header :meta="$metaInfo" />
     <v-card>
       <v-card-text class="text-truncate">
@@ -16,7 +15,7 @@
               flat
             >
               <v-toolbar-title>
-                菜单管理
+                {{ $metaInfo.info.title }}
               </v-toolbar-title>
               <v-divider
                 class="mx-4"
@@ -43,12 +42,12 @@
                     v-bind="attrs"
                     v-on="on"
                   >
-                    创建菜单
+                    Add
                   </v-btn>
                 </template>
                 <v-card>
                   <v-card-title primary-title>
-                    创建菜单
+                    Add Menu
                   </v-card-title>
                   <v-card-text>
                     <v-form v-model="valid">
@@ -57,9 +56,8 @@
                           <v-col cols="8">
                             <v-text-field
                               v-model="form.name"
-                              name="name"
                               :rules="rules.name"
-                              placeholder="菜单名称"
+                              placeholder="Name"
                               dense
                               filled
                               required
@@ -70,9 +68,8 @@
                           <v-col cols="4">
                             <v-text-field
                               v-model="form.icon"
-                              name="icon"
                               :rules="rules.icon"
-                              placeholder="图标"
+                              placeholder="Icon"
                               filled
                               dense
                               clearable
@@ -87,8 +84,7 @@
                               :items="routes"
                               item-text="path"
                               item-value="path"
-                              name="url"
-                              placeholder="页面Url"
+                              placeholder="Url"
                               filled
                               dense
                               clearable
@@ -97,9 +93,8 @@
                           <v-col cols="4">
                             <v-text-field
                               v-model="form.sort"
-                              name="sort"
                               :rules="rules.sort"
-                              placeholder="排序"
+                              placeholder="Sort"
                               filled
                               dense
                               type="number"
@@ -112,8 +107,7 @@
                               :items="accession"
                               item-text="description"
                               item-value="name"
-                              name="accession"
-                              placeholder="权限"
+                              placeholder="Accession"
                               cache-items
                               filled
                               multiple
@@ -125,9 +119,8 @@
                           <v-col cols="12">
                             <v-text-field
                               v-model="form.parentId"
-                              name="parentId"
                               :rules="rules.parentId"
-                              placeholder="父级菜单"
+                              placeholder="ParentId"
                               filled
                               dense
                             />
@@ -143,7 +136,7 @@
                       text
                       @click="handleReset"
                     >
-                      取消
+                      Cancel
                     </v-btn>
                     <v-btn
                       color="primary"
@@ -151,7 +144,7 @@
                       :disabled="!valid"
                       @click="handleSave"
                     >
-                      保存
+                      Save
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -165,13 +158,14 @@
 </template>
 
 <script>
+// !!!: 接口似乎有BUG
 import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       headers: [
         {
-          text: '菜单名称',
+          text: 'Name',
           align: 'center',
           value: 'name',
         },
@@ -181,22 +175,22 @@ export default {
           value: 'url',
         },
         {
-          text: '图标',
+          text: 'Icon',
           align: 'center',
           value: 'icon',
         },
         {
-          text: '权限',
+          text: 'Accession',
           align: 'center',
           value: 'accession',
         },
         {
-          text: '排序',
+          text: 'Sort',
           align: 'center',
           value: 'sort',
         },
         {
-          text: '父级菜单',
+          text: 'ParentId',
           align: 'center',
           value: 'parent_id',
         },
@@ -213,14 +207,14 @@ export default {
       },
       rules: {
         name: [
-          v => !!v || '不能为空',
-          v => v.length >= 2 || '长度为2-8位',
-          v => v.length <= 8 || '长度为2-8位',
+          v => !!v || 'Required',
+          v => v.length >= 2 || 'Must be no less than 2',
+          v => v.length <= 8 || 'Must be less than 8',
         ],
         icon: [
         ],
         sort: [
-          v => v > 0 || '排序必须大于0',
+          v => v > 0 || 'Sort must be greater than 0',
         ],
         parentId: [
         ],
@@ -230,8 +224,8 @@ export default {
   head() {
     return {
       info: {
-        title: '菜单管理',
-        desc: '管理左侧导航菜单',
+        title: 'Menu Management',
+        desc: 'Edit the navigator in left drawer',
       },
     }
   },

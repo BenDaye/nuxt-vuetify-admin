@@ -66,34 +66,34 @@ export default {
           width: 240,
         },
         {
-          text: '标题',
+          text: 'Title',
           align: 'left',
           value: 'title',
         },
         // {
-        //   text: '内容',
+        //   text: 'Content',
         //   align: 'left',
         //   value: 'content',
         // },
         // {
-        //   text: '备注',
+        //   text: 'Note',
         //   align: 'left',
         //   value: 'note',
         // },
         {
-          text: '编辑者',
+          text: 'Admin',
           align: 'right',
           value: 'author',
           width: 240,
         },
         {
-          text: '创建时间',
+          text: 'CreatedAt',
           align: 'right',
           value: 'created_at',
           width: 120,
         },
         {
-          text: '修改时间',
+          text: 'UpdatedAt',
           align: 'right',
           value: 'updated_at',
           width: 120,
@@ -104,8 +104,8 @@ export default {
   head() {
     return {
       info: {
-        title: 'Notification管理',
-        desc: '管理Notification',
+        title: 'Notification Management',
+        desc: 'Notification Management',
       },
     }
   },

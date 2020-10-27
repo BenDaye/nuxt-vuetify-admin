@@ -6,7 +6,7 @@
         <span class="text-decoration-dashed">{{ user.id }}</span>
       </div>
       <div class="font-weight-bold d-flex align-center">
-        <span class="mr-2">角色</span>
+        <span class="mr-2">Role</span>
         <span
           v-for="(r, i) in user.role"
           :key="i"
@@ -22,10 +22,10 @@
       color="warning mb-8"
     >
       <v-card-title primary-title>
-        禁用用户
+        User Disabled
       </v-card-title>
       <v-card-subtitle>
-        此用户已被管理员禁用,登录等功能将无法使用.
+        This user has been disabled! Login accesss has been revoked.
       </v-card-subtitle>
       <v-card-actions>
         <v-btn
@@ -37,13 +37,13 @@
             size="16px"
           >
             mdi-account-check
-          </v-icon> 启用
+          </v-icon> Enable User
         </v-btn>
       </v-card-actions>
     </v-card>
     <v-card class="mb-8">
       <v-card-title primary-title>
-        会员信息
+        Basic Information
       </v-card-title>
       <v-card-text>
         <div class="d-flex flex-column flex-sm-row">
@@ -70,7 +70,7 @@
               class="mt-2"
               small
             >
-              更换头像
+              Edit Avatar
             </v-btn>
           </div>
           <div class="flex-grow-1 pt-4 pa-sm-4 pt-sm-0">
@@ -84,7 +84,7 @@
                 >
                   <v-text-field
                     v-model="user.username"
-                    label="账号"
+                    label="Account"
                     dense
                     disabled
                   />
@@ -97,7 +97,7 @@
                 >
                   <v-text-field
                     v-model="form.nickname"
-                    label="昵称"
+                    label="Nickname"
                     dense
                     @blur="handleChangeNickname"
                   />
@@ -111,7 +111,7 @@
                   <v-select
                     v-model="form.gender"
                     :items="genders"
-                    label="性别"
+                    label="Gender"
                     dense
                     @change="handleChangeGender"
                   />
@@ -124,7 +124,7 @@
                 >
                   <v-text-field
                     v-model="user.email"
-                    label="邮箱"
+                    label="Email"
                     dense
                     disabled
                   />
@@ -137,7 +137,7 @@
                 >
                   <v-text-field
                     v-model="user.phone"
-                    label="手机"
+                    label="Phone"
                     dense
                     disabled
                   />
@@ -150,7 +150,7 @@
                 >
                   <v-text-field
                     v-model="user.wechat"
-                    label="微信"
+                    label="WeChat"
                     dense
                     disabled
                   />
@@ -163,7 +163,7 @@
                 >
                   <v-text-field
                     v-model="user.invite_code"
-                    label="邀请码"
+                    label="Invite Code"
                     dense
                     disabled
                   />
@@ -181,27 +181,27 @@
     >
       <v-card flat>
         <v-card-title primary-title>
-          重置密码
+          Reset User Password
         </v-card-title>
         <v-card-subtitle>
-          重置密码...
+          Reset User Password...
         </v-card-subtitle>
         <v-card-text>
           <v-btn
             color="error"
             class="mb-4"
           >
-            重置密码
+            Reset User Password
           </v-btn>
         </v-card-text>
       </v-card>
       <v-divider />
       <v-card flat>
         <v-card-title primary-title>
-          设置角色
+          Edit User Role
         </v-card-title>
         <v-card-subtitle>
-          设置角色...
+          Edit User Role...
         </v-card-subtitle>
         <v-card-text>
           <v-autocomplete
@@ -210,7 +210,7 @@
             item-text="description"
             item-value="name"
             cache-items
-            placeholder="角色"
+            placeholder="Role"
             multiple
             chips
             class="mb-4"
@@ -221,10 +221,10 @@
       <v-divider />
       <v-card flat>
         <v-card-title primary-title>
-          修改状态
+          Edit Status
         </v-card-title>
         <v-card-subtitle>
-          修改状态...
+          Edit Status...
         </v-card-subtitle>
         <v-card-text>
           <v-radio-group
@@ -232,15 +232,15 @@
             class="mb-4"
           >
             <v-radio
-              label="启用"
+              label="Activated"
               :value="1"
             />
             <v-radio
-              label="禁用"
+              label="Forbidden"
               :value="-100"
             />
             <v-radio
-              label="未激活"
+              label="Inactivated"
               :value="-1"
             />
           </v-radio-group>
@@ -248,7 +248,7 @@
             color="primary"
             class="mb-4"
           >
-            保存
+            Save
           </v-btn>
         </v-card-text>
       </v-card>
@@ -261,8 +261,13 @@
         Raw Data
       </v-card-title>
       <v-card-text>
-        <code class="body-2">
+        <code class="caption">
           <pre>{{ user }}</pre>
+        </code>
+      </v-card-text>
+      <v-card-text>
+        <code class="caption">
+          <pre>{{ roles }}</pre>
         </code>
       </v-card-text>
     </v-card>
@@ -270,18 +275,18 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import { getUrl, User, Role } from '~/api'
+import { mapActions } from 'vuex'
 export default {
   layout: 'child',
-  middleware: ['id'],
-  async asyncData({ $axios, params, error }) {
+  validate({ params: { id } }) { return !!id },
+  async asyncData({ params: { id }, error, store: { dispatch } }) {
     try {
-      const { data: userData } = await $axios.$get(`${getUrl(User.user)}/${params.id}`)
-      const { data: roles } = await $axios.$get(getUrl(Role.role))
-      const { role, nickname, gender, avatar, status } = userData
+      const { data: user } = await dispatch('user/getUserDetail', { id })
+      const { data: roles } = await dispatch('role/getRole')
+      const { role, nickname, gender, avatar, status } = user
       return {
-        user: userData,
+        id,
+        user,
         roles,
         form: {
           roles: role,
@@ -300,15 +305,15 @@ export default {
       valid: false,
       genders: [
         {
-          text: '无',
+          text: 'None',
           value: 0,
         },
         {
-          text: '男',
+          text: 'Male',
           value: 1,
         },
         {
-          text: '女',
+          text: 'Female',
           value: 2,
         },
       ],
@@ -317,28 +322,16 @@ export default {
   head() {
     return {
       info: {
-        title: '会员详情',
-        desc: '查看或编辑会员信息',
+        title: 'Edit User',
+        desc: 'Edit User',
       },
     }
-  },
-  computed: {
-    ...mapGetters({
-      role: 'role/role',
-    }),
-    id() {
-      return this.$route.params.id
-    },
-  },
-  mounted() {
-    this.getRole()
   },
   methods: {
     ...mapActions({
       getUserDetail: 'user/getUserDetail',
       updateUser: 'user/updateUser',
       updateUserRole: 'user/updateUserRole',
-      getRole: 'role/getRole',
     }),
     async handleChangeNickname() {
       const id = this.id

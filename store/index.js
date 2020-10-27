@@ -7,12 +7,12 @@ export const actions = {
     commit('app/SET_ENV', process.env.NODE_ENV)
     commit('app/SET_RUNTIME', getNodeRuntime())
 
-    // 404 页面禁用初始化
+    // !!!: 404 页面禁用初始化
     if (req.url.trim() === '/404') {
       return
     }
 
-    // 验证token
+    // !!!: 验证token
     const token = $token.get()
     $axios.setToken(token)
     await dispatch('admin/getProfile')

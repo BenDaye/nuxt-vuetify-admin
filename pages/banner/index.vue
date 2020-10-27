@@ -46,37 +46,37 @@ export default {
     return {
       headers: [
         {
-          text: '图片',
+          text: 'Image',
           align: 'center',
           value: 'image',
         },
         {
-          text: '跳转链接',
+          text: 'Href',
           align: 'center',
           value: 'href',
         },
         {
-          text: '平台',
+          text: 'Platform',
           align: 'center',
           value: 'platform',
         },
         {
-          text: '描述',
+          text: 'Desc',
           align: 'center',
           value: 'description',
         },
         {
-          text: '排序',
+          text: 'Sort',
           align: 'center',
           value: 'priority',
         },
         {
-          text: 'App标识符',
+          text: 'Identifier',
           align: 'center',
           value: 'identifier',
         },
         {
-          text: '备用标识',
+          text: 'Fallback',
           align: 'center',
           value: 'fallback_url',
         },
@@ -86,8 +86,8 @@ export default {
   head() {
     return {
       info: {
-        title: 'Banner管理',
-        desc: '管理Banner',
+        title: 'Banner Management',
+        desc: 'Banner Management',
       },
     }
   },

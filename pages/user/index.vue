@@ -116,67 +116,67 @@ export default {
           width: 240,
         },
         {
-          text: '账号',
+          text: 'Account',
           align: 'left',
           value: 'username',
           width: 240,
         },
         // {
-        //   text: '等级',
+        //   text: 'Level',
         //   align: 'center',
         //   value: 'level',
         // },
         // {
-        //   text: '微信',
+        //   text: 'WeChat',
         //   align: 'left',
         //   value: 'wechat',
         // },
         {
-          text: '手机号',
+          text: 'Phone',
           align: 'left',
           value: 'phone',
         },
         {
-          text: '邮箱',
+          text: 'Email',
           align: 'left',
           value: 'email',
         },
         // {
-        //   text: '昵称',
+        //   text: 'Nickname',
         //   align: 'right',
         //   value: 'nickname',
         //   width: 240,
         // },
         // {
-        //   text: '性别',
+        //   text: 'Gender',
         //   align: 'center',
         //   value: 'gender',
         // },
         {
-          text: '角色',
+          text: 'Role',
           align: 'center',
           value: 'role',
         },
         {
-          text: '状态',
+          text: 'Status',
           align: 'center',
           value: 'status',
           width: 120,
         },
         {
-          text: '创建时间',
+          text: 'CreatedAt',
           align: 'right',
           value: 'created_at',
           width: 120,
         },
         {
-          text: '修改时间',
+          text: 'UpdatedAt',
           align: 'right',
           value: 'updated_at',
           width: 120,
         },
         {
-          text: '操作',
+          text: 'Actions',
           align: 'right',
           value: 'actions',
           sortable: false,
@@ -193,17 +193,17 @@ export default {
       },
       rules: {
         account: [
-          v => !!v || '不能为空',
+          v => !!v || 'Required',
           v => v.length >= 6 || '长度为6-36位',
           v => v.length <= 36 || '长度为6-36位',
         ],
         nickname: [
-          v => !!v || '不能为空',
+          v => !!v || 'Required',
           v => v.length >= 2 || '长度为2-36位',
           v => v.length <= 36 || '长度为2-36位',
         ],
         password: [
-          v => !!v || '不能为空',
+          v => !!v || 'Required',
           v => v.length >= 6 || '长度为6-36位',
           v => v.length <= 36 || '长度为6-36位',
         ],
@@ -216,8 +216,8 @@ export default {
   head() {
     return {
       info: {
-        title: '会员管理',
-        desc: '管理会员',
+        title: 'User Management',
+        desc: 'User Management',
       },
     }
   },
@@ -253,10 +253,7 @@ export default {
       }
       const { status } = await this.updateUser({ id, nickname })
       if (status === 1) {
-        this.$dialog.message.success('修改成功', {
-          position: 'top-right',
-          timeout: 1500,
-        })
+        this.$dialog.message.success('Successfully modified', { position: 'top-right' })
       }
     },
   },

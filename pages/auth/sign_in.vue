@@ -12,14 +12,14 @@
       >
         <v-card>
           <v-card-title primary-title>
-            欢迎访问
+            Welcome
           </v-card-title>
           <v-card-text>
             <v-form v-model="isValided">
               <v-text-field
                 v-model="form.username"
                 :rules="rules.username"
-                label="账号"
+                label="Account"
                 autofocus
                 clearable
                 required
@@ -28,7 +28,7 @@
               <v-text-field
                 v-model="form.password"
                 :rules="rules.password"
-                label="密码"
+                label="Password"
                 type="password"
                 clearable
                 required
@@ -44,7 +44,7 @@
               :loading="submitLoading"
               @click.stop="handleSubmit"
             >
-              登录
+              Sign In
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -65,14 +65,14 @@ export default {
       },
       rules: {
         username: [
-          v => !!v || '账号不能为空',
-          v => v.length >= 2 || '账号长度为2-16位',
-          v => v.length <= 16 || '账号长度为2-16位',
+          v => !!v || 'Required',
+          v => v.length >= 2 || 'Must be between 2 and 16',
+          v => v.length <= 16 || 'Must be between 2 and 16',
         ],
         password: [
-          v => !!v || '密码不能为空',
-          v => v.length >= 6 || '密码长度为6-16位',
-          v => v.length <= 16 || '密码长度为6-16位',
+          v => !!v || 'Required',
+          v => v.length >= 6 || 'Must be between 6 and 16',
+          v => v.length <= 16 || 'Must be between 6 and 16',
         ],
       },
       isValided: false,
@@ -99,7 +99,7 @@ export default {
         const { status } = await this.login(this.form)
         this.submitLoading = false
         if (status === 1) {
-          await this.$dialog.message.success('登录成功', { position: 'top-right', timeout: 1500 })
+          await this.$dialog.message.success('Successfully sign in', { position: 'top-right', timeout: 1500 })
           this.$router.push('/')
         }
       }

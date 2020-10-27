@@ -40,12 +40,12 @@
                     v-bind="attrs"
                     v-on="on"
                   >
-                    创建管理员
+                    Create
                   </v-btn>
                 </template>
                 <v-card>
                   <v-card-title primary-title>
-                    创建管理员
+                    Create Admin
                   </v-card-title>
                   <v-card-text>
                     <v-form v-model="valid">
@@ -54,9 +54,8 @@
                           <v-col cols="12">
                             <v-text-field
                               v-model="form.account"
-                              name="account"
                               :rules="rules.account"
-                              label="账号"
+                              label="Account"
                               dense
                               filled
                               required
@@ -67,9 +66,8 @@
                           <v-col cols="12">
                             <v-text-field
                               v-model="form.name"
-                              name="name"
                               :rules="rules.name"
-                              label="昵称"
+                              label="Nickname"
                               dense
                               filled
                               required
@@ -79,9 +77,8 @@
                           <v-col cols="12">
                             <v-text-field
                               v-model="form.password"
-                              name="password"
                               :rules="rules.password"
-                              label="密码"
+                              label="Password"
                               dense
                               filled
                               required
@@ -117,7 +114,7 @@
                       text
                       @click="handleReset"
                     >
-                      取消
+                      Cancel
                     </v-btn>
                     <v-btn
                       color="primary"
@@ -126,7 +123,7 @@
                       :loading="loading"
                       @click="handleSave"
                     >
-                      保存
+                      Save
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -135,7 +132,7 @@
           </template>
           <template #item.username="{ item }">
             <v-badge
-              content="超管"
+              content="Super"
               :value="item.is_super"
               inline
               tile
@@ -159,7 +156,7 @@
                 <v-text-field
                   v-model="edit.name"
                   :rules="rules.name"
-                  placeholder="昵称"
+                  placeholder="Nickname"
                   single-line
                 />
               </template>
@@ -199,7 +196,7 @@
 
               <v-card>
                 <v-card-title>
-                  {{ `确认删除账号${item.username} ?` }}
+                  {{ `Confirm delete account ${item.username} ?` }}
                 </v-card-title>
                 <v-card-actions>
                   <v-spacer />
@@ -207,7 +204,7 @@
                     small
                     text
                   >
-                    取消
+                    Cancel
                   </v-btn>
                   <v-btn
                     small
@@ -215,7 +212,7 @@
                     depressed
                     @click="handleDelete(item)"
                   >
-                    删除
+                    Delete
                   </v-btn>
                 </v-card-actions>
               </v-card>
@@ -239,39 +236,39 @@ export default {
         //   value: 'id',
         // },
         {
-          text: '账号',
+          text: 'Account',
           align: 'left',
           value: 'username',
         },
         {
-          text: '昵称',
+          text: 'Nickname',
           align: 'right',
           value: 'name',
         },
         {
-          text: '权限',
+          text: 'Accession',
           align: 'right',
           value: 'accession',
         },
         {
-          text: '状态',
+          text: 'Status',
           align: 'center',
           value: 'status',
         },
         {
-          text: '创建时间',
+          text: 'CreatedAt',
           align: 'right',
           value: 'created_at',
           width: 120,
         },
         {
-          text: '修改时间',
+          text: 'UpdatedAt',
           align: 'right',
           value: 'updated_at',
           width: 120,
         },
         {
-          text: '操作',
+          text: 'Actions',
           align: 'right',
           value: 'actions',
           sortable: false,
@@ -287,19 +284,19 @@ export default {
       },
       rules: {
         account: [
-          v => !!v || '不能为空',
-          v => v.length >= 6 || '长度为6-36位',
-          v => v.length <= 36 || '长度为6-36位',
+          v => !!v || 'Required',
+          v => v.length >= 6 || 'Must be between 6 and 36',
+          v => v.length <= 36 || 'Must be between 6 and 36',
         ],
         name: [
-          v => !!v || '不能为空',
-          v => v.length >= 2 || '长度为2-36位',
-          v => v.length <= 36 || '长度为2-36位',
+          v => !!v || 'Required',
+          v => v.length >= 2 || 'Must be between 2 and 36',
+          v => v.length <= 36 || 'Must be between 2 and 36',
         ],
         password: [
-          v => !!v || '不能为空',
-          v => v.length >= 6 || '长度为6-36位',
-          v => v.length <= 36 || '长度为6-36位',
+          v => !!v || 'Required',
+          v => v.length >= 6 || 'Must be between 6 and 36',
+          v => v.length <= 36 || 'Must be between 6 and 36',
         ],
       },
       edit: {
@@ -310,8 +307,8 @@ export default {
   head() {
     return {
       info: {
-        title: '管理员管理',
-        desc: '管理管理员',
+        title: 'Admin Management',
+        desc: 'Admin Management',
       },
     }
   },
@@ -344,10 +341,7 @@ export default {
         const { status } = await this.createAdmin(this.form)
         this.loading = false
         if (status === 1) {
-          this.$dialog.message.success('新增成功', {
-            position: 'top-right',
-            timeout: 1500,
-          })
+          this.$dialog.message.success('Successfully created', { position: 'top-right' })
           this.dialog = false
         }
       }
@@ -365,10 +359,7 @@ export default {
       }
       const { status } = await this.updateAdmin({ id, name })
       if (status === 1) {
-        this.$dialog.message.success('修改成功', {
-          position: 'top-right',
-          timeout: 1500,
-        })
+        this.$dialog.message.success('Successfully modified', { position: 'top-right' })
       }
     },
   },

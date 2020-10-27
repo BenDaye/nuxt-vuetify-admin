@@ -22,13 +22,13 @@ Vue.filter('status', function(value, type, opt = {}) {
       }
       switch (value) {
         case 0:
-          return '已启用'
+          return 'Activated'
         case -1:
-          return '未激活'
+          return 'Inactivated'
         case -100:
-          return '已禁用'
+          return 'Forbidden'
         default:
-          return '未知状态'
+          return 'Unknown'
       }
     },
     user() {
@@ -47,13 +47,13 @@ Vue.filter('status', function(value, type, opt = {}) {
       }
       switch (value) {
         case 1:
-          return '已启用'
+          return 'Activated'
         case -1:
-          return '未激活'
+          return 'Inactivated'
         case -100:
-          return '已禁用'
+          return 'Forbidden'
         default:
-          return '未知状态'
+          return 'Unknown'
       }
     },
     news() {
@@ -68,9 +68,9 @@ Vue.filter('status', function(value, type, opt = {}) {
       }
       switch (value) {
         case 0:
-          return '已启用'
+          return 'Activated'
         default:
-          return '未知状态'
+          return 'Unknown'
       }
     },
     message() {
@@ -85,9 +85,9 @@ Vue.filter('status', function(value, type, opt = {}) {
       }
       switch (value) {
         case true:
-          return '已读'
+          return 'read'
         default:
-          return '未读'
+          return 'unread'
       }
     },
   }
@@ -102,13 +102,11 @@ Vue.filter('gender', function(value, f = 0) {
   }
 
   switch (value) {
-    // case 0:
-    //   return f ? '未知' : '无'
     case 1:
-      return f ? '男性' : '男'
+      return f ? 'Man' : 'Male'
     case 2:
-      return f ? '女性' : '女'
+      return f ? 'Woman' : 'Female'
     default:
-      return f ? '未知' : '无'
+      return f ? 'Unknown' : 'None'
   }
 })

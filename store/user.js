@@ -3,6 +3,7 @@ import { User, getUrl, Role } from '~/api'
 export const state = () => ({
   list: [],
   accession: [],
+  current: {},
 })
 
 export const mutations = {
@@ -11,6 +12,9 @@ export const mutations = {
   },
   SET_ACCESSION(state, accession) {
     state.accession = accession
+  },
+  SET_CURRENT(state, current) {
+    state.current = current
   },
 }
 
@@ -27,6 +31,9 @@ export const getters = {
       }
     })
   },
+  current(state) {
+    return state.current
+  },
 }
 
 export const actions = {
@@ -40,10 +47,11 @@ export const actions = {
       return error
     }
   },
-  async getUserDetail({ dispatch }, { id, show = false }) {
+  async getUserDetail({ dispatch, commit }, { id, show = false }) {
     try {
       const res = await this.$axios.$get(`${getUrl(User.user)}/${id}`)
       dispatch('dialog/showUser', { user: res.data, show }, { root: true })
+      commit('SET_CURRENT', res.data)
       return res
     } catch (error) {
       console.error(error)
@@ -60,7 +68,7 @@ export const actions = {
       return error
     }
   },
-  // NOTE: 没有这个接口
+  // ???: 没有这个接口
   // async createUser({ dispatch }, { nickname, account, password }) {
   //   try {
   //     const res = await this.$axios.$post(getUrl(User.user), {
@@ -91,9 +99,11 @@ export const actions = {
   },
   async updateUserPassword({ dispatch }, { id, password }) {
     try {
-      const res = await this.$axios.$put(`${getUrl(User.user)}/${id}/password`, {
-        password,
-      },
+      const res = await this.$axios.$put(
+        `${getUrl(User.user)}/${id}/password`,
+        {
+          password,
+        },
       )
       await dispatch('getUser')
       return res
@@ -114,7 +124,7 @@ export const actions = {
       return error
     }
   },
-  // NOTE: 没有这个接口
+  // ???: 没有这个接口
   // async deleteUser({ dispatch }, { id }) {
   //   try {
   //     const res = await this.$axios.$delete(`${getUrl(User.user)}/${id}`)

@@ -44,6 +44,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
+  layout: 'child',
   data() {
     return {
       headers: [
@@ -53,12 +54,12 @@ export default {
         //   value: 'id',
         // },
         {
-          text: '类型',
+          text: 'Type',
           align: 'center',
           value: 'type',
         },
         {
-          text: '指令',
+          text: 'CMD',
           align: 'center',
           value: 'command',
         },
@@ -68,24 +69,24 @@ export default {
           value: 'last_ip',
         },
         {
-          text: '客户端',
+          text: 'Client',
           align: 'left',
           value: 'client',
         },
         {
-          text: '创建时间',
+          text: 'CreatedAt',
           align: 'right',
           value: 'created_at',
           width: 120,
         },
         {
-          text: '修改时间',
+          text: 'UpdatedAt',
           align: 'right',
           value: 'updated_at',
           width: 120,
         },
         {
-          text: '操作',
+          text: 'Actions',
           align: 'right',
           value: 'actions',
           sortable: false,
@@ -96,8 +97,8 @@ export default {
   head() {
     return {
       info: {
-        title: '登录日志',
-        desc: '查看用户的登录日志列表',
+        title: 'Login Log',
+        desc: 'View user login log list',
       },
     }
   },

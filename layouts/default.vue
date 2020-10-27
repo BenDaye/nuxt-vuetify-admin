@@ -12,9 +12,8 @@
       elevate-on-scroll
     >
       <v-app-bar-nav-icon @click="handleClick" />
-      <v-toolbar-title>欢迎访问</v-toolbar-title>
+      <v-toolbar-title>Welcome</v-toolbar-title>
       <v-spacer />
-      <!-- // TODO: 搜索框 -->
       <v-btn icon>
         <v-icon>mdi-translate</v-icon>
       </v-btn>
@@ -60,6 +59,8 @@
 </template>
 
 <script>
+// TODO: Searchbar
+// TODO: Footer
 import { mapActions } from 'vuex'
 export default {
   middleware: ['authenticated'],
@@ -69,7 +70,7 @@ export default {
       accountMenu: [
         {
           key: 0,
-          value: '登出',
+          value: 'Sign out',
         },
       ],
     }
@@ -89,6 +90,7 @@ export default {
     handleClickAccountMenuItem(key) {
       switch (key) {
         case 0:
+          // TODO: Reset store state
           this.$token.remove()
           this.$axios.setToken(false)
           this.$router.push('/auth/sign_in')

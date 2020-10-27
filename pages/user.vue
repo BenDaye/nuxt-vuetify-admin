@@ -13,8 +13,8 @@ export default {
   head() {
     return {
       info: {
-        title: '会员管理',
-        desc: '管理会员',
+        title: 'User Management',
+        desc: 'User Management',
       },
     }
   },

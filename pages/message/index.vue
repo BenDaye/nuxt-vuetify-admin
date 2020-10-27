@@ -75,46 +75,46 @@ export default {
           width: 240,
         },
         {
-          text: '标题',
+          text: 'Title',
           align: 'left',
           value: 'title',
         },
         // {
-        //   text: '内容',
+        //   text: 'Content',
         //   align: 'left',
         //   value: 'content',
         // },
         // {
-        //   text: '备注',
+        //   text: 'Note',
         //   align: 'left',
         //   value: 'note',
         // },
         {
-          text: '接收者',
+          text: 'User',
           align: 'right',
           value: 'uid',
           width: 240,
         },
         {
-          text: '状态',
+          text: 'Status',
           align: 'center',
           value: 'read',
           width: 120,
         },
         {
-          text: '已读时间',
+          text: 'ReadAt',
           align: 'right',
           value: 'read_at',
           width: 120,
         },
         {
-          text: '创建时间',
+          text: 'CreatedAt',
           align: 'right',
           value: 'created_at',
           width: 120,
         },
         {
-          text: '修改时间',
+          text: 'UpdatedAt',
           align: 'right',
           value: 'updated_at',
           width: 120,
@@ -125,8 +125,8 @@ export default {
   head() {
     return {
       info: {
-        title: 'Message管理',
-        desc: '管理Message',
+        title: 'Message Management',
+        desc: 'Message Management',
       },
     }
   },

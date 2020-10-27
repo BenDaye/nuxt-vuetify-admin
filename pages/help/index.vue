@@ -66,45 +66,45 @@ export default {
           width: 200,
         },
         {
-          text: '类型',
+          text: 'Type',
           align: 'left',
           value: 'type',
         },
         {
-          text: '标题',
+          text: 'Title',
           align: 'left',
           value: 'title',
         },
         // {
-        //   text: '内容',
+        //   text: 'Content',
         //   align: 'left',
         //   value: 'content',
         // },
         {
-          text: '标签',
+          text: 'Tags',
           align: 'center',
           value: 'tags',
         },
         {
-          text: '编辑者',
+          text: 'Admin',
           align: 'right',
           value: 'author',
           width: 240,
         },
         {
-          text: '状态',
+          text: 'Status',
           align: 'center',
           value: 'status',
           width: 120,
         },
         {
-          text: '创建时间',
+          text: 'CreatedAt',
           align: 'right',
           value: 'created_at',
           width: 120,
         },
         {
-          text: '修改时间',
+          text: 'UpdatedAt',
           align: 'right',
           value: 'updated_at',
           width: 120,
@@ -115,8 +115,8 @@ export default {
   head() {
     return {
       info: {
-        title: 'Help管理',
-        desc: '管理Help',
+        title: 'Help Management',
+        desc: 'Help Management',
       },
     }
   },
