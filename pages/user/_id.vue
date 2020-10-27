@@ -240,7 +240,7 @@
               :value="-100"
             />
             <v-radio
-              label="Inactivated"
+              label="Deactivated"
               :value="-1"
             />
           </v-radio-group>

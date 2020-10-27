@@ -24,7 +24,7 @@ Vue.filter('status', function(value, type, opt = {}) {
         case 0:
           return 'Activated'
         case -1:
-          return 'Inactivated'
+          return 'Deactivated'
         case -100:
           return 'Forbidden'
         default:
@@ -49,7 +49,7 @@ Vue.filter('status', function(value, type, opt = {}) {
         case 1:
           return 'Activated'
         case -1:
-          return 'Inactivated'
+          return 'Deactivated'
         case -100:
           return 'Forbidden'
         default:
@@ -95,7 +95,7 @@ Vue.filter('status', function(value, type, opt = {}) {
   return type in handler ? handler[type].call(this) : value
 })
 
-// NOTE: 0: Short, 1: Full
+// ???: 0: Short, 1: Full
 Vue.filter('gender', function(value, f = 0) {
   if (value === undefined) {
     return ''

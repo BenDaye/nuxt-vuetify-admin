@@ -16,7 +16,7 @@
           small
           @click.stop="handleDialogUser({ show: false })"
         >
-          关闭
+          Close
         </v-btn>
         <v-btn
           color="primary"
@@ -39,7 +39,7 @@ export default {
       user: 'dialog/user',
     }),
     dialogUser: {
-      // ? 防止因以其他方式关闭dialog导致直接向vuex.state赋值
+      // ???: 防止因以其他方式关闭dialog导致直接向vuex.state赋值
       get() {
         return this.showUser
       },

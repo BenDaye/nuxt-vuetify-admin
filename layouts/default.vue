@@ -53,14 +53,23 @@
       <z-dialog />
     </v-main>
     <v-footer app>
-      1
+      <v-spacer />
+      <span class="text-uppercase caption">
+        Built with
+        <a
+          class="text-decoration-none text-decoration-dashed"
+          href="https://www.github.com/BenDaye"
+          target="_blank"
+        >
+          Ben@Zingy
+        </a>
+      </span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
 // TODO: Searchbar
-// TODO: Footer
 import { mapActions } from 'vuex'
 export default {
   middleware: ['authenticated'],

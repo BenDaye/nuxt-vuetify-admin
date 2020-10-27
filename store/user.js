@@ -68,7 +68,6 @@ export const actions = {
       return error
     }
   },
-  // ???: 没有这个接口
   // async createUser({ dispatch }, { nickname, account, password }) {
   //   try {
   //     const res = await this.$axios.$post(getUrl(User.user), {
@@ -124,7 +123,6 @@ export const actions = {
       return error
     }
   },
-  // ???: 没有这个接口
   // async deleteUser({ dispatch }, { id }) {
   //   try {
   //     const res = await this.$axios.$delete(`${getUrl(User.user)}/${id}`)
