@@ -67,7 +67,10 @@
       <Nuxt />
       <z-dialog />
     </v-main>
-    <v-footer app>
+    <v-footer
+      app
+      inset
+    >
       <v-spacer />
       <span class="text-uppercase caption">
         Built with
