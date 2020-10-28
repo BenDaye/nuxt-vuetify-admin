@@ -1,4 +1,4 @@
-# nuxt-vuetify-wms
+# nuxt-vuetify-admin
 
 ## Build Setup
 
