@@ -25,8 +25,9 @@
         flat
         hide-no-data
         hide-details
-        label="Search on this site"
+        :placeholder="searchLabel"
         solo-inverted
+        prepend-inner-icon="mdi-text-search"
       />
       <v-btn icon>
         <v-icon>mdi-translate</v-icon>
@@ -100,12 +101,13 @@ export default {
       searching: false,
       searchItems: [],
       searchInput: null,
+      searchLabel: 'Search (press "ctrl + /" to focus)',
     }
   },
   mounted() {
     this.getAdmin()
     this.getUser()
-    // ???: 监听按下'/'触发searchbar.focus()
+    // ???: 监听按下'ctrl + /'触发searchbar.focus()
     window.addEventListener('keydown', this.handleKeydown)
   },
   beforeDestroy() {
@@ -137,8 +139,8 @@ export default {
       if (!e) {
         return
       }
-      const { key } = e
-      return key === '/' && e.target !== this.$refs.search.$refs.input && (e.preventDefault(), this.$refs.search.focus())
+      const { key, ctrlKey } = e
+      return ctrlKey && key === '/' && e.target !== this.$refs.search.$refs.input && (e.preventDefault(), this.$refs.search.focus())
     },
   },
 }
