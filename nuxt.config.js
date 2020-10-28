@@ -59,19 +59,12 @@ export default {
     debug: process.env.NODE_ENV === 'development',
   },
 
-  proxy: process.env.API_PROXY
-    ? {
-      [process.env.API_PROXY]: {
-        target: `${process.env.API_BASE}${process.env.API_VERSION}`,
-        pathRewrite: { [`^${process.env.API_PROXY}`]: '' },
-      },
-    }
-    : {
-      '/api/': {
-        target: 'https://api-mag.bendaye.vip/v1',
-        pathRewrite: { '^/api/': '' },
-      },
+  proxy: process.env.API_PROXY && {
+    [process.env.API_PROXY]: {
+      target: `${process.env.API_BASE}${process.env.API_VERSION}`,
+      pathRewrite: { [`^${process.env.API_PROXY}`]: '' },
     },
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 }
