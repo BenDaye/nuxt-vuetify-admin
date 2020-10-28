@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { Gender, Status } from '~/constants'
 
 Vue.filter('status', function(value, type, opt = {}) {
   if (value === undefined) {
@@ -10,85 +11,75 @@ Vue.filter('status', function(value, type, opt = {}) {
       const { color } = opt
       if (color) {
         switch (value) {
-          case 0:
-            return 'success'
-          case -1:
-            return 'secondary'
-          case -100:
-            return 'error'
+          case Status.ADMIN.ACTIVATED:
+            return Status.ADMIN_COLOR.ACTIVATED
+          case Status.ADMIN.DEACTIVATED:
+            return Status.ADMIN_COLOR.DEACTIVATED
+          case Status.ADMIN.FORBIDDEN:
+            return Status.ADMIN_COLOR.FORBIDDEN
           default:
-            return 'warning'
+            return Status.UNKNOWN_COLOR
         }
       }
       switch (value) {
-        case 0:
-          return 'Activated'
-        case -1:
-          return 'Deactivated'
-        case -100:
-          return 'Forbidden'
+        case Status.ADMIN.ACTIVATED:
+          return Status.ADMIN_TEXT.ACTIVATED
+        case Status.ADMIN.DEACTIVATED:
+          return Status.ADMIN_TEXT.DEACTIVATED
+        case Status.ADMIN.FORBIDDEN:
+          return Status.ADMIN_TEXT.FORBIDDEN
         default:
-          return 'Unknown'
+          return Status.UNKNOWN_TEXT
       }
     },
     user() {
       const { color } = opt
       if (color) {
         switch (value) {
-          case 1:
-            return 'success'
-          case -1:
-            return 'secondary'
-          case -100:
-            return 'error'
+          case Status.USER.ACTIVATED:
+            return Status.USER_COLOR.ACTIVATED
+          case Status.USER.DEACTIVATED:
+            return Status.USER_COLOR.DEACTIVATED
+          case Status.USER.FORBIDDEN:
+            return Status.USER_COLOR.FORBIDDEN
           default:
-            return 'warning'
+            return Status.UNKNOWN_COLOR
         }
       }
       switch (value) {
-        case 1:
-          return 'Activated'
-        case -1:
-          return 'Deactivated'
-        case -100:
-          return 'Forbidden'
+        case Status.USER.ACTIVATED:
+          return Status.USER_TEXT.ACTIVATED
+        case Status.USER.DEACTIVATED:
+          return Status.USER_TEXT.DEACTIVATED
+        case Status.USER.FORBIDDEN:
+          return Status.USER_TEXT.FORBIDDEN
         default:
-          return 'Unknown'
+          return Status.UNKNOWN_TEXT
       }
     },
     news() {
       const { color } = opt
       if (color) {
         switch (value) {
-          case 0:
-            return 'success'
+          case Status.NEWS.ACTIVATED:
+            return Status.NEWS_COLOR.ACTIVATED
           default:
-            return 'warning'
+            return Status.UNKNOWN_COLOR
         }
       }
       switch (value) {
-        case 0:
-          return 'Activated'
+        case Status.NEWS.ACTIVATED:
+          return Status.NEWS_TEXT.ACTIVATED
         default:
-          return 'Unknown'
+          return Status.UNKNOWN_TEXT
       }
     },
     message() {
       const { color } = opt
       if (color) {
-        switch (value) {
-          case true:
-            return 'success'
-          default:
-            return 'warning'
-        }
+        return value ? Status.MESSAGE_COLOR.READ : Status.MESSAGE_COLOR.UNREAD
       }
-      switch (value) {
-        case true:
-          return 'read'
-        default:
-          return 'unread'
-      }
+      return value ? Status.MESSAGE_TEXT.READ : Status.MESSAGE_TEXT.UNREAD
     },
   }
 
@@ -102,11 +93,11 @@ Vue.filter('gender', function(value, f = 0) {
   }
 
   switch (value) {
-    case 1:
-      return f ? 'Man' : 'Male'
-    case 2:
-      return f ? 'Woman' : 'Female'
+    case Gender.GENDER.MALE:
+      return f ? Gender.TEXT_FULL.MALE : Gender.TEXT.MALE
+    case Gender.GENDER.FEMALE:
+      return f ? Gender.TEXT_FULL.FEMALE : Gender.TEXT.FEMALE
     default:
-      return f ? 'Unknown' : 'None'
+      return f ? Gender.TEXT_FULL.UNKNOWN : Gender.TEXT.UNKNOWN
   }
 })
