@@ -5,14 +5,39 @@
       app
       bottom
     >
+      <template #prepend>
+        <v-list>
+          <v-list-item>
+            <v-list-item-content class="py-0">
+              <v-list-item-title class="primary--text font-weight-bold text-uppercase">
+                {{ name }}
+              </v-list-item-title>
+              <v-list-item-subtitle class="overline">
+                {{ version }}
+              </v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </template>
       <z-nav />
+      <template #append>
+        <v-footer>
+          <v-spacer />
+          <v-btn
+            icon
+            @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+          >
+            <v-icon>mdi-theme-light-dark</v-icon>
+          </v-btn>
+        </v-footer>
+      </template>
     </v-navigation-drawer>
     <v-app-bar
       app
       elevate-on-scroll
     >
       <v-app-bar-nav-icon @click="handleClick" />
-      <v-toolbar-title>Welcome</v-toolbar-title>
+      <!-- <v-toolbar-title>Welcome</v-toolbar-title> -->
       <v-spacer />
       <v-autocomplete
         ref="search"
@@ -88,7 +113,7 @@
 
 <script>
 // TODO: define searchItems
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   middleware: ['authenticated'],
   data() {
@@ -106,6 +131,12 @@ export default {
       searchInput: null,
       searchLabel: 'Search (press "ctrl + /" to focus)',
     }
+  },
+  computed: {
+    ...mapGetters({
+      name: 'app/name',
+      version: 'app/version',
+    }),
   },
   mounted() {
     this.getAdmin()

@@ -1,6 +1,7 @@
 import { System, getUrl } from '~/api'
 
 export const state = () => ({
+  name: 'Nuxt Vuetify Admin',
   version: '0.0.0',
   env: 'development',
   runtime: {},
@@ -8,6 +9,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  SET_NAME(state, name = 'Nuxt Vuetify Admin') {
+    state.name = name
+  },
   SET_VERSION(state, version = '0.0.0') {
     state.version = version
   },
@@ -19,6 +23,24 @@ export const mutations = {
   },
   SET_SYSTEM(state, system = {}) {
     state.system = system
+  },
+}
+
+export const getters = {
+  name(state) {
+    return state.name
+  },
+  version(state) {
+    return state.version
+  },
+  env(state) {
+    return state.env
+  },
+  system(state) {
+    return state.system
+  },
+  runtime(state) {
+    return state.runtime
   },
 }
 
