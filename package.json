@@ -20,7 +20,7 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged",
-      "post-update": "chmod +x ./utils/log.sh && ./utils/log.sh"
+      "update": "chmod +x ./utils/log.sh && ./utils/log.sh"
     }
   },
   "dependencies": {
