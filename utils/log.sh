@@ -1,0 +1,1 @@
+git log --pretty=format:'{%n  "commit": "%H",%n  "date": "%cD",%n  "name": "%cN",%n  "subject":"%s"%n},' | sed "$ s/,$//" | sed ':a;N;$!ba;s/\r\n\([^{]\)/\\n\1/g'| awk 'BEGIN { print("[") } { print($0) } END { print("]") }' > ./utils/git.json

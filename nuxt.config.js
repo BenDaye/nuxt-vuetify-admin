@@ -24,6 +24,7 @@ export default {
     '~/plugins/token',
     '~/plugins/date-fns',
     '~/plugins/common-filters',
+    { src: '~/plugins/apexcharts', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

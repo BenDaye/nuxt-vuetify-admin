@@ -19,17 +19,20 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-update": "chmod +x ./utils/log.sh && ./utils/log.sh"
     }
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
+    "apexcharts": "^3.22.0",
     "cookie": "^0.4.1",
     "core-js": "^3.6.5",
     "date-fns": "^2.16.1",
     "js-cookie": "^2.2.1",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.14.6",
+    "vue-apexcharts": "^1.6.0",
     "vuetify-dialog": "^2.0.12"
   },
   "devDependencies": {

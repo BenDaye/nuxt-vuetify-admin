@@ -1,0 +1,218 @@
+[
+{
+  "commit": "bef16ddd27fcb3a693d095c9929438ea14a12db0",
+  "date": "Wed, 28 Oct 2020 15:56:17 +0800",
+  "name": "BenDaye",
+  "subject":"feat: require env.API_PROXY"
+},
+{
+  "commit": "26ae061e6285af2d908157be891e4a1ee8de21a3",
+  "date": "Wed, 28 Oct 2020 15:51:34 +0800",
+  "name": "BenDaye",
+  "subject":"feat: nav header&footer"
+},
+{
+  "commit": "8f1837ccd75879b21906ef33e6b132811d3158ac",
+  "date": "Wed, 28 Oct 2020 14:47:56 +0800",
+  "name": "BenDaye",
+  "subject":"feat: rename"
+},
+{
+  "commit": "aeedd6db595c87f205f2a49c5698820113a88562",
+  "date": "Wed, 28 Oct 2020 12:40:34 +0800",
+  "name": "BenDaye",
+  "subject":"feat: constants"
+},
+{
+  "commit": "be1bb6720a29152e382c1e3903dc6a884e25221b",
+  "date": "Wed, 28 Oct 2020 11:52:42 +0800",
+  "name": "BenDaye",
+  "subject":"feat: footer inset"
+},
+{
+  "commit": "30cc7d66dcfb0fc8dab288cb2a42856b8890c912",
+  "date": "Wed, 28 Oct 2020 11:44:54 +0800",
+  "name": "BenDaye",
+  "subject":"refactor: listen keydown ctrl + /"
+},
+{
+  "commit": "fb89111d931d83e8ebd6f64575aeaea9bd461d33",
+  "date": "Wed, 28 Oct 2020 01:04:54 +0800",
+  "name": "BenDaye",
+  "subject":"feat: init searchbar"
+},
+{
+  "commit": "a1aab0b91063d8bdfb56904d597aeaf1bb3bb853",
+  "date": "Wed, 28 Oct 2020 00:10:08 +0800",
+  "name": "BenDaye",
+  "subject":"fix: unnecessary middleware"
+},
+{
+  "commit": "ea613ce384c439bdb209481643bd921613fa9704",
+  "date": "Wed, 28 Oct 2020 00:07:09 +0800",
+  "name": "BenDaye",
+  "subject":"feat: footer"
+},
+{
+  "commit": "1b76bbee54a3c6a3c81152ea72ccb2cb28afb821",
+  "date": "Tue, 27 Oct 2020 22:15:58 +0800",
+  "name": "BenDaye",
+  "subject":"refactor: english"
+},
+{
+  "commit": "2b0e5c4e2918a08f32857209312a2c9fcda4971d",
+  "date": "Mon, 26 Oct 2020 22:05:17 +0800",
+  "name": "BenDaye",
+  "subject":"fix: handle asyncData error"
+},
+{
+  "commit": "d7d54faca77aaf0fd260d9cdafd208fbca742524",
+  "date": "Mon, 26 Oct 2020 21:21:00 +0800",
+  "name": "BenDaye",
+  "subject":"fix: nested layout"
+},
+{
+  "commit": "da6a80075088ecb881a150721aedc66e7ac3d725",
+  "date": "Mon, 26 Oct 2020 20:57:54 +0800",
+  "name": "BenDaye",
+  "subject":"Merge branch 'master' of https://github.com/BenDaye/nuxt-vuetify-wms"
+},
+{
+  "commit": "904b0eb5ba0d2afb07bc8865fd97f2b90dc9a12a",
+  "date": "Mon, 26 Oct 2020 20:57:23 +0800",
+  "name": "BenDaye",
+  "subject":"feat: user detail"
+},
+{
+  "commit": "8fd8063a9b0ed15163b168c31189fbc546727d68",
+  "date": "Mon, 26 Oct 2020 14:12:20 +0800",
+  "name": "GitHub",
+  "subject":"Update README.md"
+},
+{
+  "commit": "19ea77c2f0abd59ce3482e417efb4b22c03dc65f",
+  "date": "Mon, 26 Oct 2020 11:33:41 +0800",
+  "name": "BenDaye",
+  "subject":"fix: show name or path"
+},
+{
+  "commit": "0b3d2452a7aa08a1e46a9861f275d754c51955cb",
+  "date": "Sun, 25 Oct 2020 22:18:36 +0800",
+  "name": "BenDaye",
+  "subject":"feat: change router"
+},
+{
+  "commit": "846e4011383e72afc40e0f408f63d49226b5ab36",
+  "date": "Sun, 25 Oct 2020 20:05:37 +0800",
+  "name": "BenDaye",
+  "subject":"feat: detail dialog"
+},
+{
+  "commit": "7b8cf0778f4b84aa8eab17d184c8291b0d69cd25",
+  "date": "Sun, 25 Oct 2020 13:54:09 +0800",
+  "name": "BenDaye",
+  "subject":"feat: common dialog"
+},
+{
+  "commit": "1e472b7b8df9d455e260d0ab05450ecb6210c4b0",
+  "date": "Sun, 25 Oct 2020 02:39:53 +0800",
+  "name": "BenDaye",
+  "subject":"feat: match author"
+},
+{
+  "commit": "7814436d70023c25628033b97c78772d7ca43867",
+  "date": "Sat, 24 Oct 2020 12:54:31 +0800",
+  "name": "BenDaye",
+  "subject":"refactor: change key"
+},
+{
+  "commit": "2d41244d31917f9258bd58247e85525ad19f591a",
+  "date": "Sat, 24 Oct 2020 12:38:15 +0800",
+  "name": "BenDaye",
+  "subject":"feat: use .env"
+},
+{
+  "commit": "6897e8bc2c89c353ebd3320b602508228c51811e",
+  "date": "Sat, 24 Oct 2020 01:34:00 +0800",
+  "name": "BenDaye",
+  "subject":"feat: add some pages"
+},
+{
+  "commit": "3f958981ebdc83767082e2ee5be1033787fbe7f7",
+  "date": "Sat, 24 Oct 2020 01:24:52 +0800",
+  "name": "BenDaye",
+  "subject":"feat: add some pages"
+},
+{
+  "commit": "add341edcff3c8b59ac1b83872fb403fee538e0a",
+  "date": "Sat, 24 Oct 2020 01:08:44 +0800",
+  "name": "BenDaye",
+  "subject":"feat: add some pages"
+},
+{
+  "commit": "14111b81d61846d4cca326d9d570bdbabef38cdd",
+  "date": "Sat, 24 Oct 2020 01:08:24 +0800",
+  "name": "BenDaye",
+  "subject":"fix: check req.headers.cookie"
+},
+{
+  "commit": "9e53ab5e344ecb34c7e37e11dff37ac3a6097058",
+  "date": "Sat, 24 Oct 2020 01:07:15 +0800",
+  "name": "BenDaye",
+  "subject":"feat: auto insert route in nav"
+},
+{
+  "commit": "fea26aedbb0c29c76d8aef2cc847f9bde88a0139",
+  "date": "Sat, 24 Oct 2020 01:06:29 +0800",
+  "name": "BenDaye",
+  "subject":"style: default layout"
+},
+{
+  "commit": "e9b934e280197f602c3dca4d3b9af99c63b85ba3",
+  "date": "Sat, 24 Oct 2020 01:06:04 +0800",
+  "name": "BenDaye",
+  "subject":"refactor: change api"
+},
+{
+  "commit": "a9bac6f306a717a852d3bd4f571be79c6117be06",
+  "date": "Fri, 23 Oct 2020 18:51:41 +0800",
+  "name": "BenDaye",
+  "subject":"feat: some pages"
+},
+{
+  "commit": "7e8e78c58d0a62af9990230b7e4ded6832273a87",
+  "date": "Fri, 23 Oct 2020 18:51:25 +0800",
+  "name": "BenDaye",
+  "subject":"feat: common filters"
+},
+{
+  "commit": "b5ed94e164bba5f926197c50bda9de897d565900",
+  "date": "Fri, 23 Oct 2020 18:50:52 +0800",
+  "name": "BenDaye",
+  "subject":"feat: add some store & api"
+},
+{
+  "commit": "c325cbc122a0acee2c011123e5d77e37220fd931",
+  "date": "Fri, 23 Oct 2020 18:49:45 +0800",
+  "name": "BenDaye",
+  "subject":"feat: update eslintrc"
+},
+{
+  "commit": "3edecb839e6c6ee1fc3a2705a00301e85f494beb",
+  "date": "Thu, 22 Oct 2020 20:03:51 +0800",
+  "name": "BenDaye",
+  "subject":"feat: update axios config"
+},
+{
+  "commit": "10a4a924320eb0d01ef897cf30eb86878311ca68",
+  "date": "Wed, 21 Oct 2020 15:45:50 +0800",
+  "name": "BenDaye",
+  "subject":"feat: add .gitignore"
+},
+{
+  "commit": "3ea52ff3f4b9212946652b024e3af293143a2e02",
+  "date": "Wed, 21 Oct 2020 15:42:00 +0800",
+  "name": "BenDaye",
+  "subject":"feat: init"
+}
+]
