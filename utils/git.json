@@ -1,5 +1,35 @@
 [
 {
+  "commit": "68c43241e43ba9a1392466b5dfaed2675892f08e",
+  "date": "Mon, 2 Nov 2020 16:56:37 +0800",
+  "name": "BenDaye",
+  "subject":"fix: update hook"
+},
+{
+  "commit": "821aaec198ced9bd26771e7c7ee536437850fd2c",
+  "date": "Mon, 2 Nov 2020 16:54:14 +0800",
+  "name": "BenDaye",
+  "subject":"fix: update hook"
+},
+{
+  "commit": "4e3a372377f6d573512d9c5700485257cdb586d2",
+  "date": "Mon, 2 Nov 2020 16:51:23 +0800",
+  "name": "BenDaye",
+  "subject":"fix: update hook"
+},
+{
+  "commit": "b39896f1171125959d68e4ece05c599e070c7b64",
+  "date": "Mon, 2 Nov 2020 16:50:39 +0800",
+  "name": "BenDaye",
+  "subject":"fix: update hook"
+},
+{
+  "commit": "6e76ee0c884d039ee84f9891d3e650126dddc4c6",
+  "date": "Mon, 2 Nov 2020 16:48:29 +0800",
+  "name": "BenDaye",
+  "subject":"feat: show contributions"
+},
+{
   "commit": "bef16ddd27fcb3a693d095c9929438ea14a12db0",
   "date": "Wed, 28 Oct 2020 15:56:17 +0800",
   "name": "BenDaye",
